@@ -9,6 +9,29 @@ import { useLocale } from "@/contexts/LocaleContext";
 import { usePrayerTimes } from "@/hooks/usePrayerTimes";
 import { useLocationStore } from "@/contexts/LocationContext";
 import { ListSkeleton } from "@/components/ui/Skeleton";
+import {
+  dateFromParts,
+  formatBanglaCalendar,
+  gregorianToBangla,
+  toBnDigits,
+} from "@/lib/banglaCalendar";
+
+const WEEKDAYS = {
+  en: ["S", "M", "T", "W", "T", "F", "S"],
+  bn: ["র", "সো", "ম", "বু", "বৃ", "শু", "শ"],
+};
+
+function gregorianDate(g) {
+  return dateFromParts(g?.year, g?.month?.number, g?.day);
+}
+
+function isSameDay(g, date) {
+  return (
+    Number(g?.year) === date.getFullYear() &&
+    Number(g?.month?.number) === date.getMonth() + 1 &&
+    Number(g?.day) === date.getDate()
+  );
+}
 
 export default function CalendarPage() {
   const { t, locale } = useLocale();
@@ -46,13 +69,25 @@ export default function CalendarPage() {
     return map;
   }, [events.data]);
 
+  const monthLabel = new Intl.DateTimeFormat(locale === "bn" ? "bn-BD" : "en-GB", {
+    month: "long",
+    year: "numeric",
+  }).format(new Date(year, month - 1, 1));
+  const banglaMonth = gregorianToBangla(dateFromParts(year, month, 15));
+  const todayBangla = prayers.data?.date
+    ? formatBanglaCalendar(dateFromParts(...String(prayers.data.date).split("-")), "bn")
+    : null;
+
   if (events.isLoading) return <ListSkeleton />;
 
   return (
     <div className="p-4">
       <h1 className="text-2xl font-semibold">{t("nav.calendar")}</h1>
       <Card className="mt-4">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">{t("dates.hijri")}</p>
         <p className="font-medium text-primary">{prayers.data?.hijri?.formatted}</p>
+        <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">{t("dates.bangla")}</p>
+        <p className="font-bn time-text text-sm">{todayBangla || "—"}</p>
         <p className="mt-2 text-xs text-muted">{t("calendar.note")}</p>
       </Card>
       <div className="mt-4 flex items-center justify-between">
@@ -68,9 +103,14 @@ export default function CalendarPage() {
         >
           ‹
         </Button>
-        <p className="text-sm font-medium">
-          {month}/{year}
-        </p>
+        <div className="text-center">
+          <p className="text-sm font-medium">{monthLabel}</p>
+          {banglaMonth ? (
+            <p className="font-bn time-text mt-0.5 text-[11px] text-muted">
+              {banglaMonth.month.bn} {toBnDigits(banglaMonth.year)}
+            </p>
+          ) : null}
+        </div>
         <Button
           size="sm"
           variant="secondary"
@@ -84,9 +124,18 @@ export default function CalendarPage() {
           ›
         </Button>
       </div>
-      <div className="mt-3 grid grid-cols-7 gap-1 text-center text-[11px] text-muted">
-        {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
-          <span key={`${d}-${i}`}>{d}</span>
+      <div className="mt-3 flex items-center justify-center gap-3 text-[10px] uppercase tracking-wide text-muted">
+        <span>{t("dates.gregorian")}</span>
+        <span>·</span>
+        <span>{t("dates.hijri")}</span>
+        <span>·</span>
+        <span className="font-bn normal-case tracking-normal">{t("dates.bangla")}</span>
+      </div>
+      <div className="mt-2 grid grid-cols-7 gap-1 text-center text-[11px] text-muted">
+        {(WEEKDAYS[locale] || WEEKDAYS.en).map((d, i) => (
+          <span key={`${d}-${i}`} className={locale === "bn" ? "font-bn" : undefined}>
+            {d}
+          </span>
         ))}
       </div>
       <div className="mt-1 grid grid-cols-7 gap-1">
@@ -95,16 +144,29 @@ export default function CalendarPage() {
         ))}
         {(monthQuery.data || []).map((day) => {
           const hijri = day.hijri;
+          const gregorian = day.gregorian;
           const event = hijri ? eventMap.get(`${hijri.month?.number}-${hijri.day}`) : null;
+          const bangla = gregorianToBangla(gregorianDate(gregorian));
+          const today = isSameDay(gregorian, now);
           return (
             <div
-              key={day.gregorian?.formatted || hijri?.formatted}
-              className={`min-h-[64px] rounded-xl border p-1 text-center ${
-                event ? "border-gold bg-surface-warm" : "border-border bg-surface"
+              key={gregorian?.formatted || hijri?.formatted}
+              className={`min-h-[72px] rounded-xl border p-1 text-center ${
+                today
+                  ? "border-gold bg-surface-warm"
+                  : event
+                    ? "border-primary/40 bg-primary-soft/50"
+                    : "border-border bg-surface"
               }`}
             >
-              <p className="time-text text-[11px] text-muted">{day.gregorian?.day}</p>
-              <p className="time-text text-sm font-semibold">{hijri?.day}</p>
+              <p className="time-text text-[11px] text-muted">{gregorian?.day}</p>
+              <p className="time-text text-sm font-semibold leading-tight">{hijri?.day}</p>
+              {bangla ? (
+                <p className="font-bn time-text mt-0.5 text-[10px] leading-tight text-primary">
+                  {toBnDigits(bangla.day)}
+                  {bangla.day === 1 ? ` ${bangla.month.bn}` : ""}
+                </p>
+              ) : null}
             </div>
           );
         })}

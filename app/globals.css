@@ -60,7 +60,8 @@ html[lang="bn"] .tabular-nums {
   font-feature-settings: normal;
 }
 
-html[lang="bn"] .time-text {
+html[lang="bn"] .time-text,
+.font-bn.time-text {
   font-family: var(--font-bangla), sans-serif;
   font-weight: 600;
   letter-spacing: 0.04em;

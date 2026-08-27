@@ -41,6 +41,7 @@
     "currentPrayer": "Current prayer",
     "ongoing": "Ongoing",
     "remaining": "remaining",
+    "until": "until",
     "tomorrow": "tomorrow",
     "quickActions": "Quick actions",
     "ayahOfDay": "Ayah of the day",
@@ -50,7 +51,9 @@
     "locationNeeded": "Set your city so prayer times match where you are.",
     "useLocation": "Use my location",
     "searchCity": "Search city",
-    "locationDenied": "Location permission was denied. Search for your city instead."
+    "locationDenied": "Location permission was denied. Search for your city instead.",
+    "englishDate": "English",
+    "specialToday": "Today"
   },
   "prayer": {
     "fajr": "Fajr",
@@ -78,7 +81,8 @@
     "title": "Daylight",
     "sunrise": "Sunrise",
     "sunset": "Sunset",
-    "night": "After sunset"
+    "night": "After sunset",
+    "daylightLeft": "daylight left"
   },
   "moon": {
     "title": "Hijri month",
@@ -93,15 +97,28 @@
     "today": "Today",
     "week": "This week",
     "month": "This month",
+    "year": "This year",
     "streak": "Current streak",
     "best": "Best streak",
     "consistent": "Most consistent",
     "performed": "Performed",
-    "jamaah": "In congregation",
-    "late": "Late / Qada",
+    "jamaah": "Jamaah",
+    "late": "Qada",
     "missed": "Missed",
-    "none": "Not recorded",
-    "empty": "No salah recorded yet. Mark today's prayers with one tap."
+    "none": "None",
+    "empty": "No salah recorded yet. Mark today's prayers with one tap.",
+    "ofFive": "of 5 prayers",
+    "daysUnit": "days",
+    "markPerformed": "Mark remaining as performed",
+    "allLogged": "All five salah logged",
+    "weekHint": "Completed salah per day",
+    "monthHint": "Last 4 weeks",
+    "yearHint": "Last 12 weeks · darker means more salah",
+    "legendNone": "0",
+    "legendAll": "5",
+    "byPrayer": "This month by prayer",
+    "logged": "Logged",
+    "now": "Now"
   },
   "quran": {
     "surahs": "Surahs",

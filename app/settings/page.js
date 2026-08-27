@@ -11,6 +11,7 @@ import { useLocationStore } from "@/contexts/LocationContext";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Select } from "@/components/ui/Select";
+import { Checkbox } from "@/components/ui/Checkbox";
 import { EmptyState } from "@/components/ui/EmptyState";
 
 const ADJUST_KEYS = ["fajr", "dhuhr", "asr", "maghrib", "isha"];
@@ -219,10 +220,10 @@ export default function SettingsPage() {
             {ADJUST_KEYS.map((key) => (
               <label key={key} className="flex items-center justify-between gap-3 text-sm">
                 <span>{t(`prayer.${key}`)}</span>
-                <span className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
+                <span className="flex items-center gap-1">
+                  <Checkbox
                     defaultChecked={notify.data.prayers[key]?.enabled}
+                    aria-label={t(`prayer.${key}`)}
                     onChange={(e) =>
                       api.patch("/notifications", {
                         [`prayers.${key}.enabled`]: e.target.checked,
@@ -261,9 +262,9 @@ export default function SettingsPage() {
             ].map(([path, label]) => (
               <label key={path} className="flex items-center justify-between gap-3 text-sm">
                 <span>{t(label)}</span>
-                <input
-                  type="checkbox"
+                <Checkbox
                   defaultChecked={Boolean(path.split(".").reduce((obj, key) => obj?.[key], notify.data))}
+                  aria-label={t(label)}
                   onChange={(e) => api.patch("/notifications", { [path]: e.target.checked })}
                 />
               </label>

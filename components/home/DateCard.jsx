@@ -22,7 +22,7 @@ export function DateCard({ prayer }) {
       <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">{t("dates.gregorian")}</p>
       <p className="time-text text-sm">{date ? gregorianLong(date, locale) : "—"}</p>
       <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">{t("dates.bangla")}</p>
-      <p className="time-text text-sm">{date ? formatBanglaCalendar(date, locale) : "—"}</p>
+      <p className="font-bn time-text text-sm">{date ? formatBanglaCalendar(date, "bn") : "—"}</p>
     </Card>
   );
 }
