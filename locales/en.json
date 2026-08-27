@@ -1,0 +1,208 @@
+{
+  "app": {
+    "name": "Daily Islam",
+    "tagline": "Your peaceful daily companion",
+    "offline": "You are offline. Recent data is still available.",
+    "syncing": "Back online. Saved actions are syncing."
+  },
+  "nav": {
+    "home": "Home",
+    "quran": "Quran",
+    "prayer": "Prayer",
+    "dua": "Dua",
+    "more": "More",
+    "hadith": "Hadith",
+    "tasbih": "Tasbih",
+    "qibla": "Qibla",
+    "names": "99 Names",
+    "calendar": "Calendar",
+    "zakat": "Zakat",
+    "ramadan": "Ramadan",
+    "tracker": "Salah tracker",
+    "settings": "Settings",
+    "bookmarks": "Bookmarks",
+    "fasting": "Fasting"
+  },
+  "auth": {
+    "signIn": "Continue with Google",
+    "signOut": "Log out",
+    "guest": "Continue as guest",
+    "welcome": "Assalamu alaikum",
+    "needed": "Sign in to save your progress across devices.",
+    "unconfigured": "Firebase is not configured yet. You can still use prayer times and reading as a guest.",
+    "expired": "Your session expired. Please sign in again."
+  },
+  "home": {
+    "greetingMorning": "Good morning",
+    "greetingDay": "Assalamu alaikum",
+    "greetingEvening": "Good evening",
+    "greetingNight": "Peaceful night",
+    "nextPrayer": "Next prayer",
+    "currentPrayer": "Current prayer",
+    "ongoing": "Ongoing",
+    "remaining": "remaining",
+    "tomorrow": "tomorrow",
+    "quickActions": "Quick actions",
+    "ayahOfDay": "Ayah of the day",
+    "hadithOfDay": "Hadith of the day",
+    "duaOfDay": "Dua of the day",
+    "nameOfDay": "Name of Allah",
+    "locationNeeded": "Set your city so prayer times match where you are.",
+    "useLocation": "Use my location",
+    "searchCity": "Search city",
+    "locationDenied": "Location permission was denied. Search for your city instead."
+  },
+  "prayer": {
+    "fajr": "Fajr",
+    "sunrise": "Sunrise",
+    "dhuhr": "Dhuhr",
+    "asr": "Asr",
+    "sunset": "Sunset",
+    "maghrib": "Maghrib",
+    "isha": "Isha",
+    "imsak": "Imsak",
+    "midnight": "Midnight",
+    "disclaimer": "Calculated times can differ from a local mosque. Adjust minutes in Settings if needed.",
+    "method": "Calculation method",
+    "madhab": "Madhab (Asr)",
+    "hanafi": "Hanafi",
+    "shafi": "Shafi'i / Maliki / Hanbali",
+    "adjustments": "Minute adjustments"
+  },
+  "dates": {
+    "hijri": "Hijri",
+    "gregorian": "Gregorian",
+    "bangla": "Bangla"
+  },
+  "sun": {
+    "title": "Daylight",
+    "sunrise": "Sunrise",
+    "sunset": "Sunset",
+    "night": "After sunset"
+  },
+  "moon": {
+    "title": "Hijri month",
+    "progress": "Month progress",
+    "crescent": "Crescent",
+    "firstQuarter": "First quarter",
+    "gibbous": "Gibbous",
+    "full": "Full moon",
+    "lastQuarter": "Last quarter"
+  },
+  "tracker": {
+    "today": "Today",
+    "week": "This week",
+    "month": "This month",
+    "streak": "Current streak",
+    "best": "Best streak",
+    "consistent": "Most consistent",
+    "performed": "Performed",
+    "jamaah": "In congregation",
+    "late": "Late / Qada",
+    "missed": "Missed",
+    "none": "Not recorded",
+    "empty": "No salah recorded yet. Mark today's prayers with one tap."
+  },
+  "quran": {
+    "surahs": "Surahs",
+    "juz": "Juz",
+    "search": "Search the Quran",
+    "translation": "Translation",
+    "transliteration": "Transliteration",
+    "arabicOnly": "Arabic only",
+    "play": "Play",
+    "pause": "Pause",
+    "lastRead": "Last read",
+    "tafsir": "Tafsir",
+    "share": "Share ayah",
+    "copy": "Copy ayah",
+    "bookmark": "Bookmark"
+  },
+  "hadith": {
+    "collections": "Collections",
+    "grade": "Grade",
+    "reference": "Reference",
+    "search": "Search hadith",
+    "empty": "No hadith matched that search.",
+    "bnUnavailable": "A verified Bangla translation is not available for this narration yet."
+  },
+  "dua": {
+    "categories": "Categories",
+    "source": "Source",
+    "share": "Share"
+  },
+  "tasbih": {
+    "target": "Target",
+    "reset": "Reset",
+    "save": "Save session",
+    "today": "Today's total",
+    "custom": "Custom dhikr"
+  },
+  "qibla": {
+    "bearing": "Qibla bearing",
+    "distance": "Distance to the Kaaba",
+    "noCompass": "Compass is unavailable on this device. Face the bearing shown below.",
+    "permission": "Allow motion access to use the live compass."
+  },
+  "zakat": {
+    "title": "Zakat calculator",
+    "disclaimer": "Educational estimate only. Fiqh rulings can vary. Consult a qualified scholar for unusual cases.",
+    "nisab": "Nisab",
+    "due": "Estimated zakat"
+  },
+  "calendar": {
+    "note": "Civil Hijri dates are estimates. Local moon sighting can shift a date by a day."
+  },
+  "ramadan": {
+    "day": "Ramadan",
+    "sehri": "Sehri ends",
+    "iftar": "Iftar",
+    "kadrNote": "Laylatul Qadr is sought in the last ten odd nights. The 27th is commonly hoped for, not universally confirmed.",
+    "calendar": "Fasting calendar",
+    "tarawih": "Tarawih",
+    "khatm": "Quran khatm (juz)",
+    "goal": "Daily ayah goal",
+    "marked": "Marked"
+  },
+  "settings": {
+    "account": "Account",
+    "location": "Location",
+    "prayer": "Prayer calculation",
+    "language": "Language",
+    "theme": "Theme",
+    "quran": "Quran preferences",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "export": "Export my data",
+    "delete": "Delete account",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "notify": {
+    "explain": "We can remind you at prayer time. Notifications are helpful, not a replacement for a mosque clock or phone alarm.",
+    "allow": "Enable reminders",
+    "denied": "Notifications are blocked in the browser.",
+    "morning": "Morning Adhkar",
+    "evening": "Evening Adhkar",
+    "friday": "Friday Surah Al-Kahf",
+    "dailyQuran": "Daily Quran goal",
+    "dailyAyah": "Daily ayah",
+    "sehri": "Ramadan Sehri",
+    "iftar": "Ramadan Iftar"
+  },
+  "errors": {
+    "offline": "You appear to be offline.",
+    "network": "Could not reach the server.",
+    "api": "Islamic data is temporarily unavailable.",
+    "retry": "Try again"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "search": "Search",
+    "loading": "Loading",
+    "close": "Close",
+    "seeAll": "See all"
+  }
+}

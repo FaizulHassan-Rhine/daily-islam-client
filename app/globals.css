@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: 247 250 245;
+  --color-surface: 255 255 255;
+  --color-surface-secondary: 247 250 245;
+  --color-surface-warm: 251 248 240;
+  --color-primary: 49 94 75;
+  --color-primary-soft: 220 233 223;
+  --color-secondary: 79 128 104;
+  --color-gold: 200 169 107;
+  --color-foreground: 30 41 35;
+  --color-muted: 113 128 120;
+  --color-border: 228 235 229;
+  --pattern-opacity: 0.035;
+}
+
+.dark {
+  --color-background: 16 23 19;
+  --color-surface: 23 32 27;
+  --color-surface-secondary: 32 45 38;
+  --color-surface-warm: 28 36 30;
+  --color-primary: 121 168 142;
+  --color-primary-soft: 30 46 38;
+  --color-secondary: 121 168 142;
+  --color-gold: 213 184 117;
+  --color-foreground: 237 244 239;
+  --color-muted: 166 180 171;
+  --color-border: 41 56 47;
+  --pattern-opacity: 0.05;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+}
+
+body {
+  font-feature-settings: "ss01" on, "cv11" on;
+  padding-top: env(safe-area-inset-top);
+}
+
+.font-bn,
+html[lang="bn"],
+html[lang="bn"] body,
+html[lang="bn"] .ui-copy {
+  font-family: var(--font-bangla), var(--font-ui), system-ui, sans-serif;
+}
+
+html[lang="bn"] .tabular-nums {
+  font-variant-numeric: normal;
+}
+
+.time-text {
+  font-variant-numeric: normal;
+  font-feature-settings: normal;
+}
+
+html[lang="bn"] .time-text {
+  font-family: var(--font-bangla), sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.islamic-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23315E4B' stroke-width='0.7' opacity='0.9'%3E%3Cpath d='M36 4 L68 36 L36 68 L4 36 Z'/%3E%3Cpath d='M36 16 L56 36 L36 56 L16 36 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 72px 72px;
+  opacity: var(--pattern-opacity);
+}
+
+.glass {
+  background: rgb(var(--color-surface) / 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.arabic-text {
+  font-family: var(--font-arabic), serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 2;
+}
+
+.quran-text {
+  font-family: var(--font-quran), var(--font-arabic), serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 2.35;
+  letter-spacing: 0;
+}
+
+*:focus-visible {
+  outline: 2px solid rgb(var(--color-primary));
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--color-border)) transparent;
+}
+
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.sun-glow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse-soft 3.2s ease-in-out infinite;
+}
